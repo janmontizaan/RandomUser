@@ -95,8 +95,8 @@ app.get('/randompersons', function (request, response) {
     //  response.send(randomPerson);
 })
 
-app.get('/SimplePerson', function(request, response){
-    console.log('getSimplePerson ');
+app.get('/simplePerson', function(request, response){
+    console.log('SimplePerson ');
     response.send(simplePerson);
 })
 
