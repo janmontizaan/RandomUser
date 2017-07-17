@@ -1,6 +1,8 @@
 // jansrandomuser
 // author moja
 // Shift Alt F(ormat)
+
+// searchByLastname branch
 var express = require('express');
 var app = express();
 var http = require('http');
@@ -77,6 +79,10 @@ https.get('https://randomuser.me/api/?results=5', function (res) {
 }).on('error', function (e) {
     console.log('problem with request: ' + e.message);
     //response.send(jsonObject);
+})
+
+app.get('/searchByLastname/:lastname', function(request, response){
+    response.send(unknownPerson);
 })
 
 app.get('/randomperson', function (request, response) {
