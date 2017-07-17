@@ -1,8 +1,6 @@
 // jansrandomuser
 // author moja
 // Shift Alt F(ormat)
-// this is the master typing (himself)
-
 //master branch
 
 var express = require('express');
@@ -82,6 +80,19 @@ https.get('https://randomuser.me/api/?results=5', function (res) {
     console.log('problem with request: ' + e.message);
     //response.send(jsonObject);
 })
+
+app.get('/searchByLastname/:lastname', function(request, response){
+    if(simplePersonContainsLastname(request.params.lastname)){
+        response.send(simplePerson);
+
+    }
+    else{
+    response.send(unknownPerson);}
+})
+
+function simplePersonContainsLastname(lastname){
+    return true;
+}
 
 app.get('/randomperson', function (request, response) {
     // console.log('typeof text ', typeof randomperson);
