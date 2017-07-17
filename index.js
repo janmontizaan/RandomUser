@@ -82,8 +82,17 @@ https.get('https://randomuser.me/api/?results=5', function (res) {
 })
 
 app.get('/searchByLastname/:lastname', function(request, response){
-    response.send(unknownPerson);
+    if(simplePersonContainsLastname(request.params.lastname)){
+        response.send(simplePerson);
+
+    }
+    else{
+    response.send(unknownPerson);}
 })
+
+function simplePersonContainsLastname(lastname){
+    return true;
+}
 
 app.get('/randomperson', function (request, response) {
     // console.log('typeof text ', typeof randomperson);
